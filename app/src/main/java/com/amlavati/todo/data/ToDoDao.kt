@@ -19,7 +19,7 @@ interface ToDoDao {
     fun getSelectedTask(taskId: Int): Flow<ToDoTask>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTask(todoTask: ToDoTask):Int
+    suspend fun addTask(todoTask: ToDoTask)
 
     @Update
     suspend fun updateTask(toDoTask: ToDoTask):Int

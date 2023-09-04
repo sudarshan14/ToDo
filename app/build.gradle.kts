@@ -24,8 +24,14 @@ android {
     }
 
     buildTypes {
-        release {
+
+        debug {
             isMinifyEnabled = false
+            isDebuggable = true
+        }
+        release {
+            isMinifyEnabled = true
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -44,6 +50,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -70,9 +77,11 @@ dependencies {
     //Room components
 
     val room_version = "2.5.2"
-    implementation("androidx.room:room-runtime:$room_version")
-//    ksp("androidx.room:room-compiler:$room_version")
+//    implementation("androidx.room:room-runtime:2.5.2")
+    // annotationProcessor("androidx.room:room-compiler:2.4.2")
+    ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+//    kapt("androidx.room:room-compiler:2.5.2")
 
     //data store
     implementation("androidx.datastore:datastore-preferences:1.0.0")
@@ -81,7 +90,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.47")
 
     //compose navigation
-    implementation("androidx.navigation:navigation-compose:2.7.0")
+    implementation("androidx.navigation:navigation-compose:2.7.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

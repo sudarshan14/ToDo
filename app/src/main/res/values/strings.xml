@@ -8,4 +8,6 @@
     <string name="delete_all">Delete All</string>
     <string name="close">Close</string>
     <string name="tasks">Tasks</string>
+    <string name="sad_face_icon">Sad face icon</string>
+    <string name="empty_content">No task available</string>
 </resources>
